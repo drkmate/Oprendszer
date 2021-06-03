@@ -1,0 +1,5 @@
+mkdir script
+cd script
+touch naptar.sh
+chmod +x naptar.sh
+./naptar.sh
