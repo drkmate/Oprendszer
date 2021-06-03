@@ -1,0 +1,34 @@
+#! /bin/bash
+events='events.txt'
+while true
+do
+	echo "Would you like to..."
+	echo
+	echo "1: know what day is it today"
+	echo "2: add a new event"
+	echo "3: see my events"
+	read task
+
+	if (( $task == 1))
+	then
+		echo "Today's date is: $(date +%F)"
+	elif (( $task == 2 ))
+	then
+		read -p "Name of the event:" eventName
+		read -p "Date of the event:" eventDate
+		read -p "Time of the event:" eventTime
+		read -p "Place of the event:" eventPlace
+		newEvent=""$eventName", on "$event", at "$eventTime", "$eventPlace""
+		echo $newEvent >> $events
+	elif (( $task == 3 ))
+	then
+		cat events.txt
+	fi
+	read -p "Do you want to continue?(yes/no):" goOn
+	
+	case $goOn in
+		[yes]* ) continue;;
+		[no]* ) echo "All done, see you!" && exit;;
+		*)
+	esac
+done
